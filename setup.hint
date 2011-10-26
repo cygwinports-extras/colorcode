@@ -1,0 +1,10 @@
+category: Games
+requires: libgcc1 libQtCore4 libQtGui4 libstdc++6
+sdesc: "Qt MasterMind clone"
+ldesc: "ColorCode is a free advanced MasterMind clone with lots of 
+different game variants, from the very easy up to really challenging 
+ones. You can combine any color count from 2-10 with any column count 
+from 2-5 and allow or not pegs of the same color. Or you may select one 
+of the 5 predefined levels of difficulty. ColorCode has also a rather 
+intelligent built-in MasterMind solver - so you can let the computer 
+guess for you (nope, he's not cheating - really)."

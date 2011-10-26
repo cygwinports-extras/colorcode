@@ -1,0 +1,19 @@
+inherit qt4-qmake
+
+DESCRIPTION="Qt MasterMind clone"
+HOMEPAGE="http://colorcode.laebisch.com/"
+SRC_URI="http://colorcode.laebisch.com/download/ColorCode-${PV}.tar.gz"
+SRC_DIR="ColorCode-${PV}"
+
+src_install() {
+	cd ${B}
+	dobin colorcode.exe
+
+	for i in 16 32 64
+	do
+		insinto /usr/share/icons/hicolor/${i}x${i}/apps
+		newins ${S}/img/cc${i}.png colorcode.png
+	done
+
+	make_desktop_entry colorcode ColorCode colorcode "Game;BoardGame" "Advanced MasterMind clone"
+}
