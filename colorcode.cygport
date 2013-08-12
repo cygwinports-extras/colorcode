@@ -1,0 +1,30 @@
+inherit qt4-qmake
+
+NAME="colorcode"
+VERSION=0.7.2
+RELEASE=1
+CATEGORY="Games"
+SUMMARY="Qt MasterMind clone"
+DESCRIPTION="ColorCode is a free advanced MasterMind clone with lots of
+different game variants, from the very easy up to really challenging ones. You
+can combine any color count from 2-10 with any column count from 2-5 and allow
+or not pegs of the same color. Or you may select one of the 5 predefined
+levels of difficulty. ColorCode has also a rather intelligent built-in
+MasterMind solver - so you can let the computer guess for you (nope, he's not
+cheating - really)."
+HOMEPAGE="http://colorcode.laebisch.com/"
+SRC_URI="http://colorcode.laebisch.com/download/ColorCode-${VERSION}.tar.gz"
+SRC_DIR="ColorCode-${VERSION}"
+
+src_install() {
+	cd ${B}
+	dobin colorcode.exe
+
+	for i in 16 32 64
+	do
+		insinto /usr/share/icons/hicolor/${i}x${i}/apps
+		newins ${S}/img/cc${i}.png colorcode.png
+	done
+
+	make_desktop_entry colorcode ColorCode colorcode "Game;BoardGame" "Advanced MasterMind clone"
+}
